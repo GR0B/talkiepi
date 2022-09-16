@@ -1,3 +1,15 @@
+GROB: Forked from talkiepi, removed all the GPIO stuff to make it a little more simple
+
+
+
+
+
+
+
+
+
+
+
 # talkiepi
 ![assembled1](doc/talkiepi_assembled_1.jpg "Assembled talkiepi 1")
 ![assembled2](doc/talkiepi_assembled_2.jpg "Assembled talkiepi 2")

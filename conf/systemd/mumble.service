@@ -4,12 +4,12 @@ Requires = systemd-user-sessions.service network.target sound.target
 After = multi-user.target
 
 [Service]
-User = mumble  
-Group = mumble  
+User = cs  
+Group =  
 Type = simple  
-ExecStart = /home/mumble/bin/talkiepi
+ExecStart = /home/cs/bin/talkiepi -server 192.168.2.121:64738 -username testUser -channel TestCH >/var/log/mumble.log 
 Restart = always 
-RestartSec = 5
+RestartSec = 20
 
 [Install]
 WantedBy = multi-user.target
