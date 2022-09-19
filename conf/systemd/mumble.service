@@ -7,7 +7,7 @@ After = multi-user.target
 User = cs  
 Group =  
 Type = simple  
-ExecStart = /home/cs/bin/talkiepi -server 192.168.2.121:64738 -username testUser -channel TestCH >/var/log/mumble.log 
+ExecStart = /home/cs/bin/talkiepi -server 192.168.2.121:64738 -username TalkiePi -channel Test >/var/log/mumble.log 
 Restart = always 
 RestartSec = 20
 
