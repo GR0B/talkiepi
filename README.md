@@ -1,8 +1,40 @@
 GROB: Forked from talkiepi, removed all the GPIO stuff to make it a little more simple
 
 
+# -------------------------------------------- Talkiepi install process  
+# --install required libs
+sudo apt update
+sudo apt -y install libopenal-dev libopus-dev libasound2-dev libopenal1 libopusfile-dev
 
 
+# --download asound config to set default audio capture, note: this does not take affect till next reboot
+sudo wget https://raw.githubusercontent.com/GR0B/talkiepi/master/conf/asoundrc/.asoundrc -O ~/.asoundrc
+sudo chmod a+r ~/.asoundrc
+
+
+# --download precompiled talkiepi client bin (else follow the Go compile instruction instead of this step)
+mkdir ~/bin
+cd ~/bin
+sudo wget https://raw.githubusercontent.com/GR0B/talkiepi/master/bin-rpi/talkiepi -O /home/cs/bin/talkiepi
+sudo chmod a+rx ~/bin/talkiepi 
+
+
+
+# --download talkiepi mumble service and set to auto start
+sudo wget https://raw.githubusercontent.com/GR0B/talkiepi/master/conf/systemd/mumble.service -O /etc/systemd/system/mumble.service
+sudo chmod a+r /etc/systemd/system/mumble.service
+
+# update user, client name and channel values
+sudo nano /etc/systemd/system/mumble.service
+
+
+# --enable service
+sudo systemctl enable mumble.service
+sudo systemctl start mumble.service
+
+
+# --reboot to test, 
+sudo reboot now
 
 
 
